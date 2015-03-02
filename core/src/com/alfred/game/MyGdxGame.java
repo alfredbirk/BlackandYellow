@@ -41,9 +41,6 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
     public void create () {
         batch = new SpriteBatch();
         generateLevel();
-        //lineTexture = new Texture("line.png");
-        //line = new Sprite(lineTexture);
-        //line.setOrigin(line.getX() - 10, line.getY() + line.getHeight()/2);
 
         Gdx.input.setInputProcessor(this);
     }

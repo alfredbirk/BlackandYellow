@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
 /**
- * Created by Alfred on 02.03.2015.
+ * Created by Alfred on 02.03.2015
  */
 public class Line {
 
