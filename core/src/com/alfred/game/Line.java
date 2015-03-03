@@ -13,6 +13,7 @@ public class Line {
     private float angle;
     private Texture img = new Texture("line.png");
     private Sprite sprite = new Sprite(img);
+    private float speed = 0;
 
     public Line(float x, float y, float angle) {
         this.x = x;
@@ -21,7 +22,7 @@ public class Line {
     }
 
     public void rotateLine() {
-        angle++;
+        angle += speed;
     }
 
     public float getAngle() {
@@ -39,5 +40,9 @@ public class Line {
 
     public Sprite getSprite() {
         return sprite;
+    }
+
+    public void setSpeed(float speed) {
+        this.speed = speed;
     }
 }
