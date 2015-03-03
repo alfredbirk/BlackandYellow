@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MyGdxGame extends ApplicationAdapter implements InputProcessor, GestureDetector.GestureListener {
+public class MyGdxGame implements InputProcessor, GestureDetector.GestureListener {
 
     private SpriteBatch batch;
     private Texture lineTexture;
@@ -41,6 +41,7 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor, Ges
         lines.add(line4);
     }
 
+    /*
     @Override
     public void create () {
         batch = new SpriteBatch();
@@ -55,6 +56,7 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor, Ges
         batch.dispose();
         lineTexture.dispose();
     }
+    */
 
 
 
@@ -72,15 +74,18 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor, Ges
         }
     }
 
+    /*
     @Override
     public void render () {
         Gdx.gl.glClearColor(1,1,1,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+
         batch.begin();
         renderLines();
         batch.end();
     }
+    */
 
 
     @Override
