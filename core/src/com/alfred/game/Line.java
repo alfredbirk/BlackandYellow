@@ -21,8 +21,16 @@ public class Line {
         this.angle = angle;
     }
 
-    public void rotateLine() {
-        angle += speed;
+    public void update(float delta) {
+        rotateLine(speed);
+        speed -= 1;
+        if(speed < 0) {
+            speed = 0;
+        }
+    }
+
+    public void rotateLine(float degrees) {
+        angle += degrees;
     }
 
     public float getAngle() {
@@ -43,6 +51,6 @@ public class Line {
     }
 
     public void setSpeed(float speed) {
-        this.speed = speed;
+        this.speed += speed;
     }
 }
