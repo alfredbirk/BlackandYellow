@@ -59,7 +59,7 @@ public class MyGdxGame implements InputProcessor, GestureDetector.GestureListene
     */
 
 
-
+/*
     public void renderLines() {
         int len = lines.size();
         for(int i = 0; i < len; i++) {
@@ -73,7 +73,7 @@ public class MyGdxGame implements InputProcessor, GestureDetector.GestureListene
             line.getSprite().draw(batch);
         }
     }
-
+*/
     /*
     @Override
     public void render () {

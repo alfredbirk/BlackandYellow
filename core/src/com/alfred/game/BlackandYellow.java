@@ -10,8 +10,13 @@ public class BlackandYellow extends Game {
 
     @Override
     public void create() {
+        AssetLoader.load();
         setScreen(new GameScreen());
+    }
 
-
+    @Override
+    public void dispose() {
+        super.dispose();
+        AssetLoader.dispose();
     }
 }
