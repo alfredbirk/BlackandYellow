@@ -34,7 +34,7 @@ public class InputHandler implements InputProcessor {
 
         for(int i = 0; i < lines.size(); i++) {
             Line line = lines.get(i);
-            line.onClick();
+            line.onClick(screenX, screenY);
         }
 
         return true;
@@ -42,12 +42,23 @@ public class InputHandler implements InputProcessor {
 
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-        return false;
+
+        for(int i = 0; i < lines.size(); i++) {
+            Line line = lines.get(i);
+            line.onRelease(screenX, screenY);
+        }
+
+        return true;
     }
 
     @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
-        return false;
+
+        for(int i = 0; i < lines.size(); i++) {
+            Line line = lines.get(i);
+            line.onDrag(screenX, screenY);
+        }
+        return true;
     }
 
     @Override
