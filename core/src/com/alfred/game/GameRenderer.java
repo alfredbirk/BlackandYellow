@@ -11,36 +11,51 @@ import java.util.List;
 /**
  * Created by Alfred on 03.03.2015.
  */
+
 public class GameRenderer {
 
     private GameWorld myWorld;
     private SpriteBatch batch;
 
+    List<Line> lines;
+    List<Sprite> lineSprites;
+
     public GameRenderer(GameWorld world) {
         myWorld = world;
         batch = new SpriteBatch();
+
+        initGameObjects();
+        initAssets();
+    }
+
+    private void initGameObjects() {
+        lines = myWorld.getLines();
+    }
+
+    private void initAssets() {
+        for(int i = 0; i < lines.size(); i++) {
+            Sprite lineSprite = new Sprite(AssetLoader.lineTexture);
+            lineSprite.setOrigin(-10, lineSprite.getHeight()/2); //hardkoding
+            lineSprites.add(lineSprite);
+        }
     }
 
     public void render() {
         Gdx.gl.glClearColor(0, 0, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        List<Line> lines = myWorld.getLines();
-
         batch.begin();
         batch.disableBlending();
 
         for(int i = 0; i < lines.size(); i++) {
-            //Putt noe utenfor rending-metoden
             Line line = lines.get(i);
-            Sprite lineSprite = new Sprite(AssetLoader.lineTexture);
+            Sprite lineSprite = lineSprites.get(i);
             lineSprite.setRotation(line.getAngle());
             lineSprite.setX(line.getX());
             lineSprite.setY(line.getY());
-            lineSprite.setOrigin(-10, lineSprite.getHeight()/2); //hardkoding
             lineSprite.draw(batch);
         }
-
+        batch.enableBlending();
         batch.end();
 
 
