@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -23,6 +24,7 @@ public class GameRenderer {
     public GameRenderer(GameWorld world) {
         myWorld = world;
         batch = new SpriteBatch();
+        lineSprites = new ArrayList<Sprite>();
 
         initGameObjects();
         initAssets();

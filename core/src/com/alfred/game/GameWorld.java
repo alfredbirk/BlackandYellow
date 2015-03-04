@@ -40,10 +40,12 @@ public class GameWorld {
         line3.update(delta);
         line4.update(delta);
 
+        /*
         line1.setSpeed(1);
         line2.setSpeed(1);
         line3.setSpeed(1);
         line4.setSpeed(1);
+        */
 
     }
 
