@@ -24,11 +24,13 @@ public class Line {
     private List<Integer> yValues = new ArrayList<Integer>();
     private int numStore = 3;
     private float friction = 0.99f;
+    private boolean black;
 
-    public Line(float x, float y, float angle) {
+    public Line(float x, float y, float angle, boolean black) {
         this.x = x;
         this.y = y;
         this.angle = angle;
+        this.black = black;
     }
 
     public void update(float delta) {
@@ -102,6 +104,10 @@ public class Line {
     public float getY()
     {
         return y;
+    }
+
+    public boolean getBlack() {
+        return black;
     }
 
 

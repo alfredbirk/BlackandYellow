@@ -8,14 +8,19 @@ import com.badlogic.gdx.graphics.Texture;
  */
 public class AssetLoader {
 
-    public static Texture lineTexture;
+    public static Texture blackLineTexture;
+    public static Texture yellowLineTexture;
 
     public static void load() {
-        lineTexture  = new Texture(Gdx.files.internal("line.png"));
+        blackLineTexture  = new Texture(Gdx.files.internal("blackLine.png"));
+        yellowLineTexture  = new Texture(Gdx.files.internal("yellowLine.png"));
+
     }
 
     public static void dispose() {
-        lineTexture.dispose();
+
+        blackLineTexture.dispose();
+        yellowLineTexture.dispose();
     }
 
 }

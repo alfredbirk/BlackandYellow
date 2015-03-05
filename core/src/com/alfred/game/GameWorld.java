@@ -23,10 +23,10 @@ public class GameWorld {
     public GameWorld() {
         lines = new ArrayList();
 
-        line1 = new Line(centerX, centerY, 0);
-        line2 = new Line(centerX, centerY, 90);
-        line3 = new Line(centerX, centerY, 180);
-        line4 = new Line(centerX, centerY, 270);
+        line1 = new Line(centerX, centerY, 0, true);
+        line2 = new Line(centerX, centerY, 90, false);
+        line3 = new Line(centerX, centerY, 180, true);
+        line4 = new Line(centerX, centerY, 270, false);
 
         lines.add(line1);
         lines.add(line2);
