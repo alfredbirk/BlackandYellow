@@ -23,6 +23,7 @@ public class Line {
     private List<Integer> xValues = new ArrayList<Integer>();
     private List<Integer> yValues = new ArrayList<Integer>();
     private int numStore = 3;
+    private float friction = 0.99f;
 
     public Line(float x, float y, float angle) {
         this.x = x;
@@ -31,6 +32,15 @@ public class Line {
     }
 
     public void update(float delta) {
+
+        if(speed > 0) {
+            speed = speed * friction;
+        }
+
+        if(speed < 0) {
+            speed = speed * friction;
+        }
+
         rotateLine(speed);
     }
 
