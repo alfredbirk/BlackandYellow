@@ -3,6 +3,8 @@ package com.alfred.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Polygon;
+import com.badlogic.gdx.math.Rectangle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,12 +27,14 @@ public class Line {
     private int numStore = 3;
     private float friction = 0.99f;
     private boolean black;
+    private Rectangle boundingLine;
 
     public Line(float x, float y, float angle, boolean black) {
         this.x = x;
         this.y = y;
         this.angle = angle;
         this.black = black;
+        boundingLine = new Rectangle();
     }
 
     public void update(float delta) {
@@ -42,6 +46,7 @@ public class Line {
         if(speed < 0) {
             speed = speed * friction;
         }
+        boundingLine.set(x, y, 178, 27);
 
         rotateLine(speed);
     }
@@ -110,8 +115,12 @@ public class Line {
         return black;
     }
 
-
     public void setSpeed(float speed) {
         this.speed += speed;
     }
+
+    public Rectangle getBoundingLine() {
+        return boundingLine;
+    }
+
 }

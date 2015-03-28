@@ -17,6 +17,8 @@ public class GameWorld {
     private Line line3;
     private Line line4;
 
+    private Dot dot;
+
     private float centerX = Gdx.graphics.getWidth()/2;
     private float centerY = Gdx.graphics.getHeight()/2;
 
@@ -32,6 +34,8 @@ public class GameWorld {
         lines.add(line2);
         lines.add(line3);
         lines.add(line4);
+
+        dot = new Dot(0, centerY, 2);
     }
 
     public void update(float delta) {
@@ -40,17 +44,19 @@ public class GameWorld {
         line3.update(delta);
         line4.update(delta);
 
-        /*
-        line1.setSpeed(1);
-        line2.setSpeed(1);
-        line3.setSpeed(1);
-        line4.setSpeed(1);
-        */
+        dot.update(delta);
 
+        for(int i = 0; i < lines.size(); i++) {
+            dot.collides(lines.get(i));
+        }
     }
 
     public List<Line> getLines() {
         return lines;
     }
 
+
+    public Dot getDot() {
+        return dot;
+    }
 }
