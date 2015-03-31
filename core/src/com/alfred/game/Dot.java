@@ -14,18 +14,28 @@ public class Dot {
     private float y;
     private float speed;
     private Circle boundingDot;
+    private boolean black;
+    private float dir;
 
-    public Dot(float x, float y, float speed){
+    public Dot(float x, float y, float speed, boolean black){
         this.x = x;
         this.y = y;
         this.speed = speed;
+        this.black = black;
 
         boundingDot = new Circle();
+
+        float xDiff = x - GameWorld.centerX;
+        float yDiff = y - GameWorld.centerY;
+        dir = (float)Math.atan2(yDiff, xDiff);
+
     }
 
     public void update(float delta) {
 
-        x += speed;
+        x -= speed * Math.cos(dir);
+        y -= speed * Math.sin(dir);
+        //y += 1;
 
         boundingDot.set(x, y, 12);
 
@@ -64,6 +74,10 @@ public class Dot {
     public float getY()
     {
         return y;
+    }
+
+    public boolean getBlack() {
+        return black;
     }
 
     public void setSpeed(float speed) {

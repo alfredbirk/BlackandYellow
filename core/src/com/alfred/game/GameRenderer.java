@@ -24,6 +24,7 @@ public class GameRenderer {
     private int lineOrigin = 15;
 
     List<Line> lines;
+    List<Dot> dots;
     List<Sprite> lineSprites;
 
     Dot dot;
@@ -42,7 +43,6 @@ public class GameRenderer {
     private void initGameObjects() {
 
         lines = myWorld.getLines();
-        dot = myWorld.getDot();
 
     }
 
@@ -91,10 +91,19 @@ public class GameRenderer {
             shapeRenderer.end();
         }
 
-        shapeRenderer.begin(ShapeType.Filled);
-        shapeRenderer.setColor(Color.RED);
-        shapeRenderer.circle(dot.getBoundingDot().x, dot.getBoundingDot().y, 12);
-        shapeRenderer.end();
+        dots = myWorld.getDots();
+        for(Dot dot : dots) {
+
+            shapeRenderer.begin(ShapeType.Filled);
+            if (dot.getBlack() == true) {
+                shapeRenderer.setColor(Color.BLACK);
+            } else {
+                shapeRenderer.setColor(Color.YELLOW);
+            }
+
+            shapeRenderer.circle(dot.getBoundingDot().x, dot.getBoundingDot().y, 12);
+            shapeRenderer.end();
+        }
     }
 
 }
