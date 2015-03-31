@@ -27,14 +27,17 @@ public class Line {
     private int numStore = 3;
     private float friction = 0.99f;
     private boolean black;
-    private Rectangle boundingLine;
+    private Polygon boundingLine;
 
     public Line(float x, float y, float angle, boolean black) {
         this.x = x;
         this.y = y;
         this.angle = angle;
         this.black = black;
-        boundingLine = new Rectangle();
+        boundingLine = new Polygon();
+        boundingLine.setVertices(new float[] {0, 0, 178, 0, 178, 27, 0, 27});
+        boundingLine.setOrigin(-15, 14);
+        boundingLine.setPosition(x, y);
     }
 
     public void update(float delta) {
@@ -46,7 +49,9 @@ public class Line {
         if(speed < 0) {
             speed = speed * friction;
         }
-        boundingLine.set(x, y, 178, 27);
+
+        boundingLine.setRotation(angle);
+
 
         rotateLine(speed);
     }
@@ -119,7 +124,7 @@ public class Line {
         this.speed += speed;
     }
 
-    public Rectangle getBoundingLine() {
+    public Polygon getBoundingLine() {
         return boundingLine;
     }
 

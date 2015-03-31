@@ -68,7 +68,7 @@ public class GameRenderer {
 
         batch.begin();
         //batch.disableBlending();
-/*
+
         for(int i = 0; i < lines.size(); i++) {
             Line line = lines.get(i);
             Sprite lineSprite = lineSprites.get(i);
@@ -78,15 +78,16 @@ public class GameRenderer {
             lineSprite.draw(batch);
 
 
-        }*/
+        }
         //batch.enableBlending();
         batch.end();
 
         for(int i = 0; i < lines.size(); i++) {
             Line line = lines.get(i);
-            shapeRenderer.begin(ShapeType.Filled);
+            shapeRenderer.begin(ShapeType.Line);
             shapeRenderer.setColor(Color.RED);
-            shapeRenderer.rect(line.getBoundingLine().getX(), line.getBoundingLine().getY(), -lineOrigin, line.getBoundingLine().getHeight()/2, line.getBoundingLine().width, line.getBoundingLine().height, 1, 1, line.getAngle());
+            shapeRenderer.polygon(line.getBoundingLine().getTransformedVertices());
+            //shapeRenderer.rect(line.getBoundingLine().getX(), line.getBoundingLine().getY(), -lineOrigin, line.getBoundingLine().getHeight()/2, line.getBoundingLine().width, line.getBoundingLine().height, 1, 1, line.getAngle());
             shapeRenderer.end();
         }
 
